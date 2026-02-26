@@ -118,6 +118,10 @@ public class EntityPropertyRegistryImpl implements EntityPropertyRegistry {
         boolean legacyNames = ver.isOlderThan(ServerVersion.V_1_9);
         boolean optionalComponents = ver.isNewerThanOrEquals(ServerVersion.V_1_13);
 
+        if (ver.isNewerThanOrEquals(ServerVersion.V_1_20_5)) {
+            register(new AttributeProperty(packetFactory, "scale", Attributes.SCALE));
+        }
+
         register(new EquipmentProperty(packetFactory, "helmet", EquipmentSlot.HELMET));
         register(new EquipmentProperty(packetFactory, "chestplate", EquipmentSlot.CHEST_PLATE));
         register(new EquipmentProperty(packetFactory, "leggings", EquipmentSlot.LEGGINGS));

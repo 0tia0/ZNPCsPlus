@@ -2,6 +2,7 @@ name: ZNPCsPlus
 authors:
   - Pyr
   - D3v1s0m
+  - 0tia0
 
 main: lol.pyr.znpcsplus.ZNpcsPlusBootstrap
 load: POSTWORLD

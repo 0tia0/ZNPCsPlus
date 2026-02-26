@@ -142,7 +142,11 @@ public class NpcProcessorTask extends BukkitRunnable {
             // look property
             if (lookType.equals(LookType.CLOSEST_PLAYER)) {
                 if (closest != null && lookDistance >= closestDist) {
-                    NpcLocation expected = npc.getLocation().lookingAt(closest.getLocation().add(0, -npc.getType().getHologramOffset(), 0));
+                    double npcHeight = npc.getType().getHologramOffset() * npc.getProperty(propertyRegistry.getByName("scale", Double.class));
+                    NpcLocation expected = npc.getLocation().lookingAt(closest.getLocation()
+                            .add(0, -npc.getType().getHologramOffset(), 0)
+                            .add(0, npcHeight, 0)
+                    );
                     if (!expected.equals(npc.getLocation())) npc.setHeadRotation(expected.getYaw(), expected.getPitch());
                 } else if (lookReturn) {
                     npc.setHeadRotation(npc.getLocation().getYaw(), npc.getLocation().getPitch());
